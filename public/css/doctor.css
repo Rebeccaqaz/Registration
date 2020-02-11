@@ -1,0 +1,176 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+/*头部样式*/
+.header{
+    width: 100%;
+    height: 320px;
+}
+
+.header .bgImg{
+    width: 100%;
+    height: 280px;
+    background-image: url(/public/images/bg.jpg) ;
+}
+
+.header .bgImg img{
+    height: 65px;
+    margin-top: 10px;
+}
+/*头部导航栏*/
+.header .nav{
+    width: 1200px;
+    height: 40px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 40px;
+}
+.header .nav a{
+    color: black;
+    padding:13px 16px;
+}
+.header .nav a:hover{
+    border-bottom: 2px solid orange;
+}
+
+/*中间内容样式*/
+.container{
+    width: 100%;
+    height: 612px;
+    padding: 16px 0;
+    background: ghostwhite;
+}
+
+.container .content{
+    width: 1200px;
+    width: 100%;
+    height: 612px;
+    margin: 0 auto;
+}
+/*左边内容样式*/
+.container .content .content_left{
+    width: 800px;
+    height:  612px;
+    float: left;
+    background: #f7e8e8;
+    margin-left: 35px;
+    text-align: center;
+}
+.container .content .content_left h3{
+    margin: 20px auto;
+}
+.container .content .content_left nav{
+    margin: 20px auto;
+}
+
+.container .content .content_left .pager{
+    display: flex;
+    justify-content: space-between;
+}
+.container .content .content_left .pager a{
+    color: orangered;
+}
+
+/*右边内容样式*/
+.container .content .content_right{
+    width: 396px;
+    height:  612px;
+    float: right;
+    background: beige;
+}
+/*右边登录部分样式*/
+.container .content .content_right .loginBox{
+    width: 320px;
+    height: 230px;
+    padding: 20px;
+    margin: 0 auto;
+}
+.container .content .content_right .loginBox .loginTitle{
+    width: 100%;
+    height: 50px;
+}
+.container .content .content_right .loginBox .loginTitle .loginText
+{
+    width: 70px;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+}
+.container .content .content_right .loginBox .loginTitle .font20{
+    border-bottom: 1px solid orange;
+}
+.container .content .content_right .loginBox .loginTitle .loginLine{
+    height: 50px;
+    width: 250px;
+    border-bottom: 1px solid lightgray;
+    float: left;
+}
+.container .content .content_right .loginBox .loginTitle .alignr{
+    text-align: right;
+    font-size: 14px;
+    color: gray;
+}
+.container .content .content_right .loginBox .loginTitle .input_box{
+    height: 40px;
+    width: 250px;
+    float: left;
+    padding-top: 10px;
+}
+.container .content .content_right .loginBox .loginTitle .input_box input{
+    width: 220px;
+    height: 30px;
+}
+.container .content .content_right .loginBox .loginTitle .input_box .loginbtn{
+    background: orange;
+    border-radius: 5px;
+    width: 220px;
+    height: 30px;
+    color: white;
+    border: none;
+}
+.container .content .content_right .loginBox .alignr{
+    text-align: right;
+    font-size: 14px;
+    height: 20px;
+}
+.container .content .content_right .loginBox .tips{
+    text-align: center;
+    color: coral;
+    font-size: 14px;
+    padding-top: 5px;
+}
+.font20{
+    font-size: 20px;
+}
+.container .content .content_right .infoBox {
+    width: 320px;
+    height: 230px;
+    padding: 20px;
+    margin: 40px auto;
+}
+.container .content .content_right .infoBox .infoTitle{
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    font-size: 30px;
+}
+.container .content .content_right .infoBox .infoContent{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 15px;
+    color: red;
+}
+/*底部样式*/
+.footer{
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    color: white;
+    background: black;
+}

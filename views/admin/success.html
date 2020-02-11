@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block main %}
+<ol class="breadcrumb">
+    <li><a href="/">管理首页</a></li>
+    <li><span>成功提示</span></li>
+</ol>
+
+<div style="padding-left: 50px;margin-top:20px; " >
+    <p>成功提示：<span>{{ message }}</span></p>
+    <div>
+        <a href="{{ url }}">点击跳转</a>
+    </div>
+</div>
+{% endblock %}

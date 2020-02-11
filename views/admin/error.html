@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block main %}
+<ol class="breadcrumb">
+    <li><a href="/">管理首页</a></li>
+    <li><span>错误提示</span></li>
+</ol>
+
+<div style="padding-left: 50px;margin-top:20px; " >
+    <p>错误提示：<span>{{ message }}</span></p>
+    <div>
+        {% if url %}
+        <a href="{{ url }}">点击跳转</a>
+        {% else %}
+        <a href="javascript:window.history.back()">返回上一步</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

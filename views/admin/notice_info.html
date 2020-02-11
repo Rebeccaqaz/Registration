@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+<ol class="breadcrumb">
+    <li><a href="/">管理首页</a></li>
+    <li><span>系统公告列表</span></li>
+</ol>
+
+<h3>系统公告列表</h3>
+
+<nav>
+    <ul class="pager">
+        <li class="previous"><a href="/admin/notice/Info?page={{ page-1 }}">&larr; 上一页</a></li>
+
+        <li>
+            一共有 {{ count }}条数据，每页显示 {{ limit }} 条数据，一共 {{ totalPage }} 页，当前第 {{ page }} 页
+        </li>
+
+        <li class="next"><a href="/admin/notice/Info?page={{ page+1 }}">下一页 &rarr;</a></li>
+    </ul>
+</nav>
+
+
+<table class="table table-hover table-striped">
+
+    <tr>
+        <th>ID</th>
+        <th>系统公告标题</th>
+        <th>添加公告时间</th>
+        <th>系统公告内容</th>
+    </tr>
+    {% for notice in notices %}
+    <tr>
+        <td>{{ notice._id.toString() }}</td>
+        <td>{{ notice.title }}</td>
+        <td>{{ notice.time }}</td>
+        <td>{{ notice.content }}</td>
+        <td>
+            <a href="/admin/notice/edit?id={{notice._id.toString()}}">修改</a>
+            <a href="/admin/notice/delete?id={{notice._id.toString()}}">删除</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<nav>
+    <ul class="pager">
+        <li class="previous"><a href="/admin/notice/Info?page={{page-1}}">&larr; 上一页</a></li>
+
+        <li>
+            一共有 {{count}}条数据，每页显示 {{limit}} 条数据，一共 {{totalPage}} 页，当前第 {{page}} 页
+        </li>
+
+        <li class="next"><a href="/admin/notice/Info?page={{page+1}}">下一页 &rarr;</a></li>
+    </ul>
+</nav>
+{% endblock %}

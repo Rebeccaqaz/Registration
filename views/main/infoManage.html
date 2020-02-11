@@ -1,0 +1,80 @@
+{% extends 'layout.html'%}
+{% block content %}
+{% if userInfo._id %}
+<div class="center"
+     style="padding: 20px;
+            margin: 0 auto;
+            height: 555px;
+            width: 720px;
+            ">
+    <div style=" width: 100%;height: 50px;line-height: 50px;border-bottom: 1px solid lightgray;">
+        <div style="font-size: 20px; ">用户中心</div>
+        <div style=" width: 100px;border-bottom: 1px solid orange;">
+        </div>
+    </div>
+    <form id="registerForm">
+        <div style=" width: 100%;height: 50px;line-height: 50px;">
+            <div style="float: left;text-align: right;font-size: 14px;color: gray;">用户名： </div>
+            <div style="float: left;">
+                <input type="text" name="username" value="{{user.username}}"
+                       style="width: 520px; height: 30px;"/>
+            </div>
+        </div>
+        <div style=" width: 100%;height: 50px;line-height: 50px;">
+            <div style="float: left;text-align: right;font-size: 14px;color: gray;">密码： </div>
+            <div style="float: left;">
+                <input type="password" name="password" value="{{user.pwd}}"
+                       style="width: 520px; height: 30px;"/>
+            </div>
+        </div>
+        <div style=" width: 100%;height: 50px;line-height: 50px;">
+            <div style="float: left;text-align: right;font-size: 14px;color: gray;">姓名： </div>
+            <div style="float: left;">
+                <input type="text" name="realName" value="{{user.realName}}"
+                       style="width: 520px; height: 30px;"/>
+            </div>
+        </div>
+        <div style=" width: 100%;height: 50px;line-height: 50px;">
+            <div style="float: left;text-align: right;font-size: 14px;color: gray;">性别： </div>
+            <div style="height: 40px;width: 250px;float: left;">
+                <input type="radio" name="gender" id="male" value="男"
+                       {% if user.gender=="男" %}
+                       checked="checked"
+                       {% endif %}/>
+                <label for="male">男</label>
+                <input type="radio" name="gender" id="female" value="女"
+                       {% if user.gender=="女" %}
+                       checked="checked"
+                       {% endif %}/>
+                <label for="female">女</label>
+            </div>
+        </div>
+        <div style=" width: 100%;height: 50px;line-height: 50px;">
+            <div style="float: left;text-align: right;font-size: 14px;color: gray;">地址： </div>
+            <div style="float: left;">
+                <input type="text" name="address" value="{{user.address}}"
+                       style="width: 520px; height: 30px;"/>
+            </div>
+        </div>
+        <div style=" width: 100%;height: 50px;line-height: 50px;">
+            <div style="float: left;text-align: right;font-size: 14px;color: gray;">电话： </div>
+            <div style="float: left;">
+                <input type="text" name="tel" value="{{user.tel}}"
+                       style="width: 520px; height: 30px;"/>
+            </div>
+        </div>
+        <div class="input_box">
+            <input type="button" value="修改注册信息" class="registerBtn"
+                   style="background: orange;border-radius: 5px;
+                           width: 320px;height: 50px;color: white;border: none;
+                           margin-left: 84px;margin-top: 20px"/>
+        </div>
+        <div style="display: none;"><input type="text" name="id" value="{{user._id.toString()}}"/></div>
+        <div class="tips" style=" width: 100%;height: 50px;line-height: 50px;color: red"></div>
+
+    </form>
+    <p style="margin-top: 20px;text-align: center;height: 100px;line-height: 100px;font-size: larger;"><a id="logout" href="/api/user/center" style="color: olivedrab;">返回上一步</a> </p>
+</div>
+{% endif %}
+<script src="/public/js/infoManage.js"></script>
+{% endblock %}

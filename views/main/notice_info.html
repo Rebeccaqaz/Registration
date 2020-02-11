@@ -1,0 +1,83 @@
+{% extends 'layout.html'%}
+{% block content %}
+<div class="content_left">
+    <h3>系统公告列表</h3>
+    <nav>
+        <div class="pager">
+            <div class="previous"><a href="/api/user/noticeInfo?page={{ page-1 }}">&larr; 上一页</a></div>
+            <div>
+                一共有 {{ count }}条数据，每页显示 {{ limit }} 条数据，一共 {{ totalPage }} 页，当前第 {{ page }} 页
+            </div>
+            <div class="next"><a href="/api/user/noticeInfo?page={{ page+1 }}">下一页 &rarr;</a></div>
+        </div>
+    </nav>
+    {% for notice in notices %}
+    <div style=" height: 170px;
+                   padding: 40px;
+                ">
+        <h4 style="color: crimson">{{notice.title}}</h4>
+        <div style="color: #eb9316">{{notice.time}}</div>
+        <div>{{notice.content}}</div>
+    </div>
+    {% endfor %}
+</div>
+<div class="content_right">
+    {% if userInfo._id %}
+    <!--用户登录后界面-->
+    <div class="loginInfo" style="height:230px;width: 320px;" >
+        {% if userInfo.isAdmin %}
+        <p class="welcome" style="margin-top: 20px; color: deeppink;
+                   text-align: center;height: 100px;line-height: 100px;font-size: larger;
+                 ">你好，管理员     <a href="/admin">进入管理</a> </p>
+        {% else %}
+        <p class="welcome" style="margin-top: 20px; color: deeppink;
+                   text-align: center;height: 100px;line-height: 100px;font-size: larger;">{{ userInfo.username }}欢迎光临 <a href="/api/user/center">信息管理</a> </p>
+        {% endif %}
+        <p style="margin-top: 20px;text-align: center;height: 100px;line-height: 100px;font-size: larger;"><a id="logout" href="javascript:void(0);" style="color: olivedrab;">退出</a> </p>
+    </div>
+    {% else %}
+    <!--登录部分-->
+    <div id="loginBox" class="loginBox">
+        <form id="loginForm">
+
+            <div class="loginTitle">
+                <div class="loginText font20">登录</div>
+                <div class="loginLine"></div>
+            </div>
+
+            <div class="loginTitle">
+                <div class="loginText alignr">账号： </div>
+                <div class="input_box">
+                    <input type="text" name="username"/>
+                </div>
+            </div>
+
+            <div class="loginTitle">
+                <div class="loginText alignr">密码： </div>
+                <div class="input_box">
+                    <input type="password" name="pwd"/>
+                </div>
+            </div>
+
+            <div class="loginTitle">
+                <div class="loginText alignr"> </div>
+                <div class="input_box">
+                    <input type="button" value="登录" class="loginbtn"/>
+                </div>
+            </div>
+            <div class="tips" style=" width: 100%;height: 50px;line-height: 50px;color: red"></div>
+        </form>
+    </div>
+    {% endif %}
+    <!--信息显示部分-->
+    <div class="infoBox">
+        <div class="infoTitle">
+            联系我们
+        </div>
+        <div class="infoContent">电话：0791-81792369</div>
+        <div class="infoContent">地址：江西省南昌市江西农业大学</div>
+
+    </div>
+</div>
+<script src="/public/js/index.js"></script>
+{% endblock %}

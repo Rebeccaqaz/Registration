@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+{% block main %}
+<ol class="breadcrumb">
+    <li><a href="/">管理首页</a></li>
+    <li><span>专家修改</span></li>
+</ol>
+
+<h3>专家修改</h3>
+<!--submit action 才会实现页面跳转 到服务器端 处理对应的请求 ajax是不能跳转页面的 -两者url一致->-->
+<form  style="padding-left: 50px;margin-top:20px; " method="post" action="/admin/doctor/edit">
+    <div style="">
+        <lable for="name">专家姓名：</lable>
+        <input type="text" name="name" id="name" value="{{doctor.name}}"/>
+    </div>
+    <div style="width: 100%;height: 50px;line-height: 50px;">
+        <input type="radio" name="gender" id="male" value="男"
+               {% if doctor.gender=="男" %}
+               checked="checked"
+               {% endif %}/>
+        <label for="male">男</label>
+        <input type="radio" name="gender" id="female" value="女"
+               {% if doctor.gender=="女" %}
+               checked="checked"
+               {% endif %}/>
+        <label for="female">女</label>
+    </div>
+    <div style="">
+        <lable for="age">年龄：</lable>
+        <input type="text" name="age" id="age" value="{{doctor.age}}"/>
+    </div>
+    <div style="width: 100%;height: 50px;line-height: 50px;">
+        <lable for="tel">所属科室：</lable>
+        <select  name="department" id="department" style="width: 200px;">
+            <!--这种for循环前面参数无所谓代表自己定义的数组元素 后边代表传递过来的数组名-->
+            {% for department in departments %}
+            <option value="{{ department._id.toString() }}"
+                    {% if doctor.department._id==department._id %}
+                    selected="selected"
+                    {% endif %}>{{ department.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div style="">
+        <lable for="skill">擅长：</lable>
+        <input type="text" name="skill" id="skill" value="{{doctor.skill}}"/>
+    </div>
+    <div style="width: 100%;height: 50px;line-height: 50px;">
+        <lable for="hospital">所属医院：</lable>
+        <select  name="hospital" id="hospital" style="width: 200px;">
+            <!--这种for循环前面参数无所谓代表自己定义的数组元素 后边代表传递过来的数组名-->
+            {% for hospital in hospitals %}
+            <option value="{{ hospital._id.toString() }}"
+                    {% if doctor.hospital._id==hospital._id %}
+                    selected="selected"
+                    {% endif %}>{{ hospital.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div style="display: none;"><input type="text" name="_id" id="_id" value="{{doctor._id.toString()}}"/></div>
+    <div><input type="submit" value="提交" /></div>
+</form>
+{% endblock %}

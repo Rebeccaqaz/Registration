@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block main %}
+<ol class="breadcrumb">
+    <li><a href="/">管理首页</a></li>
+    <li><span>系统公告添加</span></li>
+</ol>
+
+<h3>系统公告添加</h3>
+<!--submit action 才会实现页面跳转 到服务器端 处理对应的请求 ajax是不能跳转页面的 -两者url一致->-->
+<form  style="padding-left: 50px;margin-top:20px; " method="post" action="/admin/notice/add">
+    <div style="">
+        <lable for="title">系统公告名称：</lable>
+        <input type="text" name="title" id="title"/>
+    </div>
+    <div style="margin-top: 20px;">
+        <lable for="content">系统公告内容：</lable>
+        <textarea cols="50" rows="10" id="content" name="content"></textarea>
+    </div>
+    <div><input type="submit" value="提交" /></div>
+</form>
+{% endblock %}

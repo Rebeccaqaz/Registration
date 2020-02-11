@@ -1,0 +1,58 @@
+{% extends 'layout.html'%}
+{% block content %}
+
+<div style="padding: 20px;
+            margin: 0 auto;
+            height: 555px;
+            width: 720px;
+            ">
+    {% if userInfo._id %}
+    <form id="regForm">
+        <div style=" width: 100%;height: 50px;line-height: 50px;border-bottom: 1px solid lightgray;">
+            <div style="font-size: 20px; ">在线挂号</div>
+            <div style=" width: 100px;border-bottom: 1px solid orange;">
+            </div>
+        </div>
+        <div style="display: none">
+                <input type="text" name="uid" value="{{userInfo._id.toString()}}"
+                       style="width: 520px; height: 30px;"/>
+        </div>
+        <div style="display: none">
+            <input type="text" name="did" value="{{did}}"
+                   style="width: 520px; height: 30px;"/>
+        </div>
+        <div style=" width: 100%;height: 50px;line-height: 50px;">
+            <div style="float: left;text-align: right;font-size: 14px;color: gray;">所患疾病： </div>
+            <div style="float: left;">
+                <input type="" name="illness"
+                       style="width: 520px; height: 30px;"/>
+            </div>
+        </div>
+        <div style=" width: 100%;height: 50px;line-height: 50px;">
+            <div style="float: left;text-align: right;font-size: 14px;color: gray;">真实姓名： </div>
+            <div style="float: left;">
+                <input type="text" name="name" style="width: 520px; height: 30px;"/>
+            </div>
+        </div>
+        <div style=" width: 100%;height: 50px;line-height: 50px;">
+            <div style="float: left;text-align: right;font-size: 14px;color: gray;">电话： </div>
+            <div style="float: left;">
+                <input type="text" name="tel" style="width: 520px; height: 30px;"/>
+            </div>
+        </div>
+        <div class="input_box">
+            <input type="button" value="提交挂号请求" class="registerBtn"
+                   style="background: orange;border-radius: 5px;
+                           width: 320px;height: 50px;color: white;border: none;
+                           margin-left: 84px;margin-top: 20px"/>
+        </div>
+        <div class="tips" style=" width: 100%;height: 50px;line-height: 50px;color: red"></div>
+
+    </form>
+    {%else%}
+    <div style="color: deeppink;">你还没有登录，请先注册，要是没有账号请先注册</div>
+    {% endif %}
+</div>
+<script src="/public/js/reg.js"></script>
+{% endblock %}
+

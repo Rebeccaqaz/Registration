@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+<ol class="breadcrumb">
+    <li><a href="/">管理首页</a></li>
+    <li><span>用户列表</span></li>
+</ol>
+
+<h3>用户列表</h3>
+
+<nav>
+    <ul class="pager">
+        <li class="previous"><a href="/admin/user/userInfo?page={{ page-1 }}">&larr; 上一页</a></li>
+
+        <li>
+            一共有 {{ count }}条数据，每页显示 {{ limit }} 条数据，一共 {{ totalPage }} 页，当前第 {{ page }} 页
+        </li>
+
+        <li class="next"><a href="/admin/user/userInfo?page={{ page+1 }}">下一页 &rarr;</a></li>
+    </ul>
+</nav>
+
+
+<table class="table table-hover table-striped">
+
+    <tr>
+        <th>ID</th>
+        <th>用户名</th>
+        <th>密码</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>地址</th>
+        <th>电话</th>
+    </tr>
+
+    {% for user in users %}
+    <tr>
+        <td>{{ user._id.toString() }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{user.pwd}}</td>
+        <td>{{user.realName}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.address}}</td>
+        <td>{{user.tel}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<nav>
+    <ul class="pager">
+        <li class="previous"><a href="/admin/user/userInfo?page={{page-1}}">&larr; 上一页</a></li>
+
+        <li>
+            一共有 {{count}}条数据，每页显示 {{limit}} 条数据，一共 {{totalPage}} 页，当前第 {{page}} 页
+        </li>
+
+        <li class="next"><a href="/admin/user/userInfo?page={{page+1}}">下一页 &rarr;</a></li>
+    </ul>
+</nav>
+{% endblock %}
